@@ -54,9 +54,9 @@ export default {
         if (!valid) return false
         const { data: res } = await loginAPI(this.loginForm) // 返回的对象中提取 data 字段的值
         if (res.status !== 0) return this.$message.error('登录失败')
+        this.updateToken(res.token) // 先更新 token***
         this.$message.success('登录成功！')
-        this.$router.push('/')
-        this.updateToken(res.token)
+        this.$router.push('/') // 然后进行路由跳转***
       })
     }
   }

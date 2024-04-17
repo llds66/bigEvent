@@ -23,11 +23,10 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-
+// 目标路由不是注册（'/reg'）或登录（'/login'）页，则重定向到登录页。
 router.beforeEach((to, from, next) => {
-  if (to.path === '/') return next()
-  if (!store.getters.isLoggedIn) return next('/')
-  next()
+  if (to.path !== '/reg' && to.path !== '/login' && !store.getters.isLoggedIn) return next('/login')
+  else next()
 })
 
 export default router
