@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate' // 本地存储token的插件
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -12,5 +13,6 @@ export default new Vuex.Store({
     updateToken (state, newToken) {
       state.token = newToken
     }
-  }
+  },
+  plugins: [createPersistedState()] // 存储token的插件
 })
