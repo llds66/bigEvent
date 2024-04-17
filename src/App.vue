@@ -3,19 +3,8 @@
 </template>
 
 <script>
-import { getListAPI } from '@/api'
 export default {
-  name: 'App',
-  created () {
-    this.getListFn()
-  },
-  methods: {
-    async getListFn () {
-      const res = await getListAPI()
-      console.log(res)
-    }
-  }
-
+  name: 'App'
 }
 </script>
 

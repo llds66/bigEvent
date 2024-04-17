@@ -1,6 +1,14 @@
 import request from '@/utils/request'
-export const getListAPI = () => {
+
+// 注册接口
+export const registerAPI = ({
+  username, password
+}) => {
   return request({
-    url: 'http://geek.itheima.net/v1_0/channels'
+    url: '/api/reguser',
+    method: 'post',
+    data: {
+      username, password
+    }
   })
 }
