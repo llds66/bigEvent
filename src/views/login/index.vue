@@ -26,7 +26,7 @@
 
 <script>
 import { loginAPI } from '@/api'
-
+import { mapMutations } from 'vuex'
 export default {
   name: 'my-login',
   data () {
@@ -48,6 +48,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['updateToken']), // 更新 token 的 mutation 函数
     async loginFn () {
       this.$refs.loginRef.validate(async valid => {
         if (!valid) return false
@@ -55,6 +56,7 @@ export default {
         if (res.status !== 0) return this.$message.error('登录失败')
         this.$message.success('登录成功！')
         this.$router.push('/')
+        this.updateToken(res.token)
       })
     }
   }
