@@ -1,12 +1,23 @@
 <template>
-  <div>App 根组件
-    <el-button type="success">成功按钮</el-button>
+  <div>
+    App 根组件
   </div>
 </template>
 
 <script>
+import { getListAPI } from '@/api'
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    this.getListFn()
+  },
+  methods: {
+    async getListFn () {
+      const res = await getListAPI()
+      console.log(res)
+    }
+  }
+
 }
 </script>
 
