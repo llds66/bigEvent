@@ -14,7 +14,7 @@
          <!-- 注册按钮 -->
          <el-form-item>
           <el-button type="primary" class="btn-reg" @click="regNewUserFn">注册</el-button>
-          <el-link type="info" class="btn-reg">去登录</el-link>
+          <el-link type="info" class="btn-reg" @click="$router.push('/login')">去登录</el-link>
         </el-form-item>
       </el-form>
     </div>
