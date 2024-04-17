@@ -14,5 +14,8 @@ export default new Vuex.Store({
       state.token = newToken
     }
   },
+  getters: {
+    isLoggedIn: state => !!state.token
+  },
   plugins: [createPersistedState()] // 存储token的插件
 })
