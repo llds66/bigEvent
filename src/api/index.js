@@ -31,3 +31,19 @@ export const getUserInfoAPI = () => {
     }
   })
 }
+// 更新用户信息数据
+export const updateUserInfoAPI = ({ id, email, nickname, username }) => {
+  return request({
+    url: '/my/userinfo',
+    headers: {
+      Authorization: store.state.token
+    },
+    method: 'POST',
+    data: {
+      id,
+      email,
+      nickname,
+      username
+    }
+  })
+}

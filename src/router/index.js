@@ -16,7 +16,10 @@ const routes = [
     path: '/',
     component: () => import('@/views/layout'),
     meta: { requiresAuth: true }
-
+  },
+  {
+    path: '/user',
+    component: () => import('@/views/user')
   }
 ]
 
