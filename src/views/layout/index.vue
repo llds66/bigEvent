@@ -11,6 +11,8 @@
     </div>
   <el-button @click="logoutFn">退出</el-button>
   <el-button @click="$router.push('/user')">个人中心</el-button>
+  <el-button @click="$router.push('/pwd')">修改密码</el-button>
+
 </div>
 </template>
 
