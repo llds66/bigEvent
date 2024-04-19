@@ -27,8 +27,13 @@ export default new Vuex.Store({
       store.commit('updateUserInfo', res.data.data) // 用户信息保存到vuex
     }
   },
+  // 导出
   getters: {
-    isLoggedIn: state => !!state.token
+    isLoggedIn: state => !!state.token,
+    nickname: state => state.userInfo.nickname,
+    username: state => state.userInfo.username,
+    user_pic: state => state.userInfo.user_pic,
+    email: state => state.userInfo.email
   },
   plugins: [createPersistedState()] // 存储token的插件
 })
