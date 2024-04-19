@@ -47,3 +47,17 @@ export const updateUserInfoAPI = ({ id, email, nickname, username }) => {
     }
   })
 }
+// 修改密码
+export const updatePwdAPI = ({ oldPwd, newPwd }) => {
+  return request({
+    url: '/my/updatepwd',
+    headers: {
+      Authorization: store.state.token
+    },
+    method: 'POST',
+    data: {
+      oldPwd,
+      newPwd
+    }
+  })
+}
