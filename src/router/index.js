@@ -24,6 +24,10 @@ const routes = [
   {
     path: '/pwd',
     component: () => import('@/views/password')
+  },
+  {
+    path: '/cate',
+    component: () => import('@/views/cate')
   }
 ]
 

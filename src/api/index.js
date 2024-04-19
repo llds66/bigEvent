@@ -61,3 +61,12 @@ export const updatePwdAPI = ({ oldPwd, newPwd }) => {
     }
   })
 }
+// 获取文章分类
+export const getArtCateListAPI = () => {
+  return request({
+    url: '/my/article/cates',
+    headers: {
+      Authorization: store.state.token
+    }
+  })
+}
