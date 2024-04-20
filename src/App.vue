@@ -4,10 +4,7 @@
 
 <script>
 export default {
-  name: 'App',
-  created () {
-    this.$store.dispatch('initUserInfo')
-  }
+  name: 'App'
 }
 </script>
 

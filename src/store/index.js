@@ -22,9 +22,12 @@ export default new Vuex.Store({
   },
   actions: {
     async initUserInfo (store) {
-      const res = await getUserInfoAPI()
-      // console.log(res)
-      store.commit('updateUserInfo', res.data.data) // 用户信息保存到vuex
+      try {
+        const res = await getUserInfoAPI()
+        store.commit('updateUserInfo', res.data.data) // 用户信息保存到vuex
+        return res.data.data // 返回用户信息
+      } catch (error) {
+      }
     }
   },
   // 导出

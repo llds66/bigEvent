@@ -35,11 +35,11 @@ const router = new VueRouter({
   routes
 })
 const whiteList = ['/login', '/reg']
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const token = store.state.token
   if (token) {
     if (!store.state.userInfo.username) {
-      store.dispatch('initUserInfo')
+      await store.dispatch('initUserInfo')
     }
     next() // 路由放行
   } else {

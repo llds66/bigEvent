@@ -70,3 +70,18 @@ export const getArtCateListAPI = () => {
     }
   })
 }
+
+// 新增文章
+export const addArticleAPI = ({ name, alias }) => {
+  return request({
+    url: '/my/article/addcates',
+    headers: {
+      Authorization: store.state.token
+    },
+    method: 'POST',
+    data: {
+      name,
+      alias
+    }
+  })
+}
