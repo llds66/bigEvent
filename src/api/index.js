@@ -85,3 +85,19 @@ export const addArticleAPI = ({ name, alias }) => {
     }
   })
 }
+
+// 修改文章
+export const updateArticleAPI = ({ Id, name, alias }) => {
+  return request({
+    url: '/my/article//updatecate',
+    headers: {
+      Authorization: store.state.token
+    },
+    method: 'POST',
+    data: {
+      Id,
+      name,
+      alias
+    }
+  })
+}
