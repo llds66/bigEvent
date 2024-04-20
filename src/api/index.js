@@ -101,3 +101,14 @@ export const updateArticleAPI = ({ Id, name, alias }) => {
     }
   })
 }
+
+// 删除文章
+export const delArticleAPI = (id) => {
+  return request({
+    url: `/my/article/deletecate/${id}`,
+    headers: {
+      Authorization: store.state.token
+    },
+    method: 'GET'
+  })
+}

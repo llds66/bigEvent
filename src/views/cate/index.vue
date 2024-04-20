@@ -23,7 +23,7 @@
             -->
           <template v-slot="scope">
         <el-button type="primary" size="mini" @click="updateFn(scope.row)">修改</el-button>
-        <el-button type="danger" size="mini">删除</el-button>
+        <el-button type="danger" size="mini" @click="removeFn(scope.row.Id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { getArtCateListAPI, addArticleAPI, updateArticleAPI } from '@/api'
+import { getArtCateListAPI, addArticleAPI, updateArticleAPI, delArticleAPI } from '@/api'
 
 export default {
   name: 'my-cate',
@@ -145,6 +145,15 @@ export default {
         this.addForm.name = obj.name
         this.addForm.alias = obj.alias
       })
+    },
+    // 删除-文章分类
+    async removeFn (Id) {
+      const { data: res } = await delArticleAPI(Id)
+      // console.log(id)
+      if (res.status !== 0) return this.$message.error('删除分类失败！')
+      this.$message.success('删除分类成功！')
+      // 重新请求列表数据
+      this.initCateListFn()
     }
   },
   mounted () {
