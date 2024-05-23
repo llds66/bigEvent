@@ -34,6 +34,7 @@ const routes = [
 const router = new VueRouter({
   routes
 })
+// 页面权限
 const whiteList = ['/login', '/reg']
 router.beforeEach(async (to, from, next) => {
   const token = store.state.token

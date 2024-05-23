@@ -11,22 +11,36 @@ export default new Vuex.Store({
     userInfo: {} // 定义用户信息对象
   },
   mutations: {
-    // 2. 更新 token 的 mutation 函数
+    /**
+     * 更新 token
+     * @param {Object} state
+     * @param {*} newToken
+     */
     updateToken (state, newToken) {
       state.token = newToken
     },
-    // 更新用户信息
+
+    /**
+     * 更新用户信息
+     * @param {Object} state
+     * @param {Object} info
+     */
     updateUserInfo (state, info) {
       state.userInfo = info
     }
   },
   actions: {
+    /**
+     * @param {Object} store
+     * @returns {Object}
+     */
     async initUserInfo (store) {
       try {
         const res = await getUserInfoAPI()
-        store.commit('updateUserInfo', res.data.data) // 用户信息保存到vuex
+        store.commit('updateUserInfo', res.data.data) // 使用store中commit方法 触发mutations 用户信息保存到vuex
         return res.data.data // 返回用户信息
       } catch (error) {
+        console.error('请求失败:', error)
       }
     }
   },
